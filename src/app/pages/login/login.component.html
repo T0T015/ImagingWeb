@@ -8,14 +8,14 @@
             </div>
   
             <h1 class = "text-center">Bienvenido a ImagingSoft</h1>
-            <form action="">
+            <form (ngSubmit) = "formSubmit()">
               <mat-form-field class = "full-width"  appearance = "outline">
                 <mat-label>Usuario</mat-label>
-                <input name = "username" required  matInput placeholder="Ingresar usuario">
+                <input [(ngModel)] = "loginData.username" name = "username" required  matInput placeholder="Ingresar usuario">
               </mat-form-field>
               <mat-form-field class="full-width"  appearance = "outline">
                 <mat-label>Contraseña</mat-label>
-                <input name = "password" required  type="password" matInput placeholder="Ingresar contraseña">
+                <input [(ngModel)] = "loginData.password" name = "password" required  type="password" matInput placeholder="Ingresar contraseña">
               </mat-form-field>
   
               <br><br>
