@@ -1,30 +1,72 @@
-<mat-toolbar color="primary">
-    <a
-      [routerLink]="'/'"
-      mat-icon-button
-      class="example-icon"
-      arial-label="Example icon-button with menu icon"
+<mat-toolbar class="toolbar1" color="primary">
+    <a 
+    [routerLink]="'/'"
+    mat-icon-button
+    class="example-icon"
+    arial-label="Example icon-button with menu icon"
     >
       <mat-icon>menu_books</mat-icon>
     </a>
     <span>ImagingSoft © Gestión Documental</span>
     <span class="example-spacer"></span>
     <a
-      [routerLink]="'/login'"
-      mat-icon-button
-      class = "example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-      style="font-size: 16px;"
-    >
-      Iniciar Sesión
-    </a>
-    <a
-      [routerLink]="'/signup'"
-      mat-icon-button
-      class="example-icon favorite-icon mr20 ml70"
-      aria-label="Example icon-button with heart icon"
-      style="font-size: 16px;"
-    >
-      Registrar
-    </a>
-  </mat-toolbar>
+  *ngIf="!isLoggedIn"
+  [routerLink]="'/login'"
+  mat-icon-button
+  class="example-icon favorite-icon login-link"
+  aria-label="Example icon-button with heart icon"
+>
+  Iniciar sesión
+</a>
+<a
+  *ngIf="!isLoggedIn"
+  [routerLink]="'/signup'"
+  mat-icon-button
+  class="example-icon favorite-icon mr20 ml70 login-link"
+  aria-label="Example icon-button with heart icon"
+>
+  Registrar
+</a>
+  <a
+    *ngIf = "isLoggedIn"
+    (click) = "logout()"
+    style="margin-right: 50px"
+    mat-icon-button
+    class="example-icon favorite-icon login-link"
+    aria-label="Example icon-button with heart icon"
+  >
+    Cerrar sesión
+  </a>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf = "isLoggedIn" class="toolbar2">
+  <mat-icon class="icon-profile">account_box</mat-icon>
+  <button
+    *ngIf = "isLoggedIn && user"
+    mat-icon-button
+    style="margin-right: 10px"
+  >
+    {{ user.username }}
+  
+  </button>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button title="Busqueda por lote" style="margin-left: -10px;">
+    <mat-icon style="font-size: 1.5em;">find_in_page</mat-icon>
+  </button>
+
+  <button mat-button title="Notificaciones" style="margin-left: -10px;">
+    <mat-icon style="font-size: 1.5em;"> message</mat-icon>
+  </button>
+
+  <button mat-button title="Visor Eventos" style="margin-left: -10px;">
+    <mat-icon style="font-size: 1.5em;">book</mat-icon>
+  </button>
+
+  <button mat-button title="Busqueda" style="margin-left: -10px;">
+    <mat-icon style="font-size: 1.5em;">search</mat-icon>
+  </button>
+
+
+</mat-toolbar>

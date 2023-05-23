@@ -2,6 +2,7 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
     "password" : ''
   }
   
-  constructor(private snack:MatSnackBar, private loginService:LoginService){ }
+  constructor(private snack:MatSnackBar, private loginService:LoginService, private router:Router){ }
 
   ngOnInit(): void {
       
@@ -37,12 +38,30 @@ export class LoginComponent implements OnInit{
 
         this.loginService.loginUser(data.token);
         this.loginService.getCurrentUser().subscribe((user:any) => {
+          this.loginService.setUser(user);
           console.log(user);
+
+          if(this.loginService.getUserRole() == "ADMIN"){
+            //Dashboard Admin
+            //window.location.href = '/admin';
+            this.router.navigate(['admin']);
+            this.loginService.loginStatusSubjec.next(true);
+          }
+          else if(this.loginService.getUserRole() == "INVITADO"){
+            //User Dashboard
+            //window.location.href = '/user-dashboard';
+            this.router.navigate(['user-dashboard']);
+            this.loginService.loginStatusSubjec.next(true);
+          }
+          else{
+            this.loginService.logout();
+          }
+
         }) 
       },(error) => {
         console.log(error);
+        Swal.fire('Error','Usuario o Contraseña incorrecto','error');
       }
     )
   }
-
 }

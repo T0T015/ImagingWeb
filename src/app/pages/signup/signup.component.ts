@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
         Swal.fire('Usuario guardado','Usuario registrado con exito','success');
       },(error) =>{
         console.log(error);
-        Swal.fire('Error','Ha ocurrido un error en el sistema','error');
+        Swal.fire('Error','Usuario ya existe en el sistema','error');
       }
     )
   }
