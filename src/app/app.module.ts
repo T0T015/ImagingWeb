@@ -24,6 +24,16 @@ import {MatIconModule} from '@angular/material/icon';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatTableModule} from '@angular/material/table';
+import { RecientesComponent } from './pages/admin/recientes/recientes.component';
+import { ExploradorComponent } from './pages/admin/explorador/explorador.component';
+import { MantenimientosComponent } from './pages/admin/mantenimientos/mantenimientos.component';
+import { SeguridadComponent } from './pages/admin/seguridad/seguridad.component';
+import { PlantillasComponent } from './pages/admin/plantillas/plantillas.component';
+import { SeguimientoComponent } from './pages/admin/seguimiento/seguimiento.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +43,14 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    SidebarComponent,
+    RecientesComponent,
+    ExploradorComponent,
+    MantenimientosComponent,
+    SeguridadComponent,
+    PlantillasComponent,
+    SeguimientoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +67,10 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     MatIconModule,
     MatSelectModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule,
+    MatTreeModule,
+    MatTableModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

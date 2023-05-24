@@ -9,20 +9,20 @@
     </a>
     <span>ImagingSoft © Gestión Documental</span>
     <span class="example-spacer"></span>
-    <a
+  <!--  <a
   *ngIf="!isLoggedIn"
-  [routerLink]="'/login'"
-  mat-icon-button
+  [routerLink]="''"
+  mat-raised-button
   class="example-icon favorite-icon login-link"
   aria-label="Example icon-button with heart icon"
 >
   Iniciar sesión
-</a>
+</a>-->
 <a
   *ngIf="!isLoggedIn"
   [routerLink]="'/signup'"
-  mat-icon-button
-  class="example-icon favorite-icon mr20 ml70 login-link"
+  mat-raised-button
+  class="example-icon favorite-icon login-link"
   aria-label="Example icon-button with heart icon"
 >
   Registrar
@@ -30,9 +30,8 @@
   <a
     *ngIf = "isLoggedIn"
     (click) = "logout()"
-    style="margin-right: 50px"
-    mat-icon-button
-    class="example-icon favorite-icon login-link"
+    mat-raised-button
+    class="example-icon favorite-icon logout-style"
     aria-label="Example icon-button with heart icon"
   >
     Cerrar sesión
@@ -57,7 +56,7 @@
   </button>
 
   <button mat-button title="Notificaciones" style="margin-left: -10px;">
-    <mat-icon style="font-size: 1.5em;"> message</mat-icon>
+    <mat-icon style="font-size: 1.5em;">message</mat-icon>
   </button>
 
   <button mat-button title="Visor Eventos" style="margin-left: -10px;">

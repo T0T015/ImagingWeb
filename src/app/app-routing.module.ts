@@ -7,28 +7,54 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
+import { RecientesComponent } from './pages/admin/recientes/recientes.component';
+import { ExploradorComponent } from './pages/admin/explorador/explorador.component';
+import { MantenimientosComponent } from './pages/admin/mantenimientos/mantenimientos.component';
+import { SeguridadComponent } from './pages/admin/seguridad/seguridad.component';
+import { PlantillasComponent } from './pages/admin/plantillas/plantillas.component';
+import { SeguimientoComponent } from './pages/admin/seguimiento/seguimiento.component';
 
 const routes: Routes = [
-  {
-    path : '',
-    component : HomeComponent,
-    pathMatch : 'full'
-  },
   {
     path : 'signup',
     component : SignupComponent,
     pathMatch : 'full'
   },
   {
-    path : 'login',
+    path : '',
     component : LoginComponent,
     pathMatch : 'full'
   },
   {
     path : 'admin',
     component : DashboardComponent,
-    pathMatch : 'full',
-    canActivate:[AdminGuard]
+    canActivate:[AdminGuard],
+    children:[
+      {
+        path:'',
+        component:RecientesComponent
+      },
+      {
+        path:'explorador',
+        component:ExploradorComponent
+      },
+      {
+        path:'mantenimiento',
+        component:MantenimientosComponent
+      },
+      {
+        path:'seguridad',
+        component:SeguridadComponent
+      },
+      {
+        path:'plantillas',
+        component:PlantillasComponent
+      },
+      {
+        path:'seguimiento',
+        component:SeguimientoComponent
+      },
+    ]
   },
   {
     path : 'user-dashboard',

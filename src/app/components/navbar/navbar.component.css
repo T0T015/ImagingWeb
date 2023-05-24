@@ -3,12 +3,22 @@
   }
 
 .login-link {
-    font-size: 18px !important; /* Ajusta el tamaño de la fuente */
+    font-size: 15px !important; /* Ajusta el tamaño de la fuente */
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 28px;
   }
 
+.logout-style {
+  font-size: 15px !important;
+  background: #5a2727 !important;
+  color: #f0f0f0 !important;
+  text-shadow: 0 1px 0 #000 !important;
+  text-decoration: none !important;
+  height: 28px;
+}
+  
 .toolbar1{
   background: #264061;
   border: #264061;
@@ -21,7 +31,6 @@
 .toolbar2{
   height: 47px;
   border: 1px solid #114885;
-  border-bottom: 0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
